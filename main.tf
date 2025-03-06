@@ -9,3 +9,7 @@ provider "aws" {
 module "loadbalance" {
   source = "./modules/loadbalance"
 }
+
+module "cloudfront" {
+  source = "./modules/cloudfront"
+}
