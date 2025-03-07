@@ -9,3 +9,9 @@ provider "aws" {
 module "loadbalance" {
   source = "./modules/loadbalance"
 }
+
+module "iam_roles" {
+  source = "./modules/iam"
+  dba_policy_arn = var.dba_policy_arn
+  infra_operator_policy_arn = var.infra_operator_policy_arn
+}
