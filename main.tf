@@ -12,6 +12,10 @@ module "loadbalance" {
   source = "./modules/loadbalance"
 }
 
+
+module "cloudfront" {
+  source = "./modules/cloudfront"
+
 module "rds" {
   source                = "./modules/rds"
   db_kms_encryption_arn = var.db_kms_encryption_arn
