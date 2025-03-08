@@ -1,13 +1,9 @@
-provider "aws" {
-    region = "us-east-1"
-}
-
 # Criando o Load Balancer (ALB)
 resource "aws_lb" "trabalho" {
   name               = "trabalho"
   internal           = false
   load_balancer_type = "application"  
-  subnets            = ["subnet-04d823ef8e771d784", "subnet-0377c9f5ee0893b58", "subnet-01fc4a2c52752a62b"]
+  subnets = var.subnets
 
   enable_deletion_protection = false
   enable_cross_zone_load_balancing = true
@@ -18,7 +14,7 @@ resource "aws_lb_target_group" "target1" {
   name     = "target1"
   port     = 80
   protocol = "HTTP"
-  vpc_id   = "vpc-0c8e5ef58e1814e90" 
+  vpc_id   = var.vpc_id 
 
   health_check {
     interval            = 30
